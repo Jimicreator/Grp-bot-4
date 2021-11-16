@@ -133,7 +133,7 @@ if ENV:
             "Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from SaitamaRobot.config import Development as Config
+    from AnieRobot.config import Development as Config
     TOKEN = Config.TOKEN
 
     try:
@@ -248,16 +248,16 @@ except BaseException:
     print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
     sys.exit(1)
 
-print("SaitamaRobot): INITIALIZING AIOHTTP SESSION")
+print("AnieRobot): INITIALIZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
     
 api_id = API_ID
 api_hash = API_HASH
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("saitama", API_ID, API_HASH)
+telethn = TelegramClient("aniebot", API_ID, API_HASH)
 pbot = Client("saitamaPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 mongo_client = MongoClient(MONGO_DB_URI)
-db = mongo_client.SaitamaRobot
+db = mongo_client.AnieRobot
 
 dispatcher = updater.dispatcher
 
@@ -269,7 +269,7 @@ SUPPORT_USERS = list(SUPPORT_USERS)
 TIGER_USERS = list(TIGER_USERS)
 
 # Load at end to ensure all prev variables have been set
-from SaitamaRobot.modules.helper_funcs.handlers import (CustomCommandHandler,
+from AnieRobot.modules.helper_funcs.handlers import (CustomCommandHandler,
                                                         CustomMessageHandler,
                                                         CustomRegexHandler)
 
